@@ -1,0 +1,98 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+}
+
+android {
+    namespace 'com.b21dccn216.pocketcocktail'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.b21dccn216.pocketcocktail"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    viewBinding{
+        enable=true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.annotation
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+    // Firebase
+    implementation libs.firebase.database
+    implementation libs.firebase.auth
+    implementation libs.credentials
+    implementation libs.credentials.play.services.auth
+    implementation libs.googleid
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.navigation.runtime.android
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+
+    // Material Component
+    implementation ("com.google.android.material:material:1.2.0")
+
+    //Carousel Layout Manager
+    // git docs: https://github.com/Azoft/CarouselLayoutManager
+    implementation ("com.mig35:carousellayoutmanager:1.4.6")
+
+    //arc layout
+    //git docs: https://github.com/ogaclejapan/ArcLayout
+    implementation ("com.ogaclejapan.arclayout:library:1.1.0@aar")
+
+    // lib for loading image link
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    // viewpager
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
+
+    // For upload image
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+
+    // For use Image
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+
+    // Swipe to refresh layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
+
+
+}
+
